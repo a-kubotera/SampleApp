@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RailsTemplate</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% flash.each do |key, value| %>
+      <% key = "info" if key == "notice" %>
+      <% key = "danger"  if key == "alert" %>
+      <%= content_tag :div, value, class: "alert alert-#{key}" %>
+    <% end %>
+    <% unless notice.blank? %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+    <% unless alert.blank? %>    
+    <p class="alert"><%= alert %></p>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

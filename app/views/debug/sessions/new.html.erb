@@ -1,0 +1,9 @@
+<h3>デバッグログイン</h3>
+<p>ログインユーザー: <%= current_user&.name %></p>
+<%= form_with url: debug_login_path do |form| %>
+  <%= form.collection_select :user_id, User.all, :id, :name %>
+  <%= form.submit :login %>
+  <%= link_to 'logout', debug_logout_path, method: :delete %>
+<% end %>
+<p>デバッグモードでのみ有効なページです</p>
+
