@@ -16,5 +16,4 @@ Rails.application.routes.draw do
   resource :profile, only: [:new, :create, :edit, :update] do
     post :confirm, on: :collection
   end
-  
 end

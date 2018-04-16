@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    models:
+      game_career: ゲーム経験
+      possess_game: 所有ゲーム機
+      prefecture: 都道府県
+      profile: プロフィール
+    attributes:
+      profile:
+        email: メールアドレス
+        address: 住所
+        tell: 電話番号
+

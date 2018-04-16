@@ -1,0 +1,40 @@
+<%= form_for profile, url: confirm_profile_path, method: :post do |f| %>  
+  <div class="d-flex flex-column">
+    <div class="form-group">
+      <label for="email"><%= Profile.human_attribute_name(:email) %></label>
+      <%= f.text_field :email, class:'form-control', id:'email', placeholder: 'email', required: true %>
+    </div>
+    <div class="form-group">
+      <label for="email"><%= Prefecture.model_name.human %></label>
+      <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name %>
+    </div>
+    <div class="form-group">
+      <label for="city"><%= Profile.human_attribute_name(:address) %></label>
+      <%= f.text_field :city, class:'form-control', id:'city', placeholder: 'city', required: true %>
+    </div>
+    <div class="form-group">
+      <label for="tell"><%= Profile.human_attribute_name(:tell) %></label>
+      <%= f.text_field :tell, class:'form-control', id:'tell', placeholder: 'tell'%>
+    </div>
+    <div class="form-group">
+      <label for="careers"><%= GameCareer.model_name.human %></label>
+      <%= f.nested_fields_for :game_careers, wrapper_tag: :div, class_name: :game_careers do |career| %>
+        <%= career.text_field :name, class:'form-control', placeholder: 'careers'%>
+        <%= career.remove_nested_fields_link 'Delete', class: 'btn btn-danger', role: 'button' %>
+      <% end %>
+      <%= f.add_nested_fields_link :game_careers, 'Add new', class: 'btn btn-primary', role: 'button' %>
+    </div>
+    <div class="form-group">
+      <label for="games"><%= PossessGame.model_name.human %></label>
+      <%= f.nested_fields_for :possess_games, wrapper_tag: :div, class_name: :possess_games do |games| %>
+        <%= games.collection_select :game_console_id,GameConsole.all, :id, :name, class:'form-control', placeholder: 'games'%>
+        <%= games.remove_nested_fields_link 'Delete', class: 'btn btn-danger', role: 'button' %>
+      <% end %>
+      <%= f.add_nested_fields_link :possess_games, 'Add new', class: 'btn btn-primary', role: 'button' %>
+    </div>
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <%= link_to 'キャンセル', root_path, class: 'btn btn-secondary' %>
+      <%= f.submit '確認画面へ', class: 'btn btn-primary' %>
+    </div>
+  </div>
+  <% end %>

@@ -1,0 +1,15 @@
+<%= form_for @profile, url: profile_path, as: :profile do |f| %>
+  <% [:email, :tell, :prefecture_id, :city ].each do |attr| %>
+    <%= f.hidden_field attr %>
+  <% end %>
+  <%= f.fields_for :possess_games do |umd| %>
+    <%= umd.hidden_field :game_console_id %>
+    <%= umd.hidden_field :_destroy %>
+  <% end %>
+  <%= f.fields_for :game_careers do |career| %>
+    <%= career.hidden_field :name %>
+    <%= career.hidden_field :_destroy %>
+  <% end %>  
+
+  <%= f.submit '登録する', class: 'btn btn-primary' %>
+<% end %>

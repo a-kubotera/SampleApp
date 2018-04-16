@@ -1,0 +1,33 @@
+<div class="d-flex flex-column">
+  <div class="form-group">
+    <label for="email"><%= Profile.human_attribute_name(:email) %></label>
+    <%= @profile.email %>
+  </div>
+  <div class="form-group">
+    <label for="email"><%= Profile.human_attribute_name(:prefecture) %></label>
+    <%= @profile.prefecture.name %>
+  </div>
+  <div class="form-group">
+    <label for="city"><%= Profile.human_attribute_name(:city) %></label>
+    <%= @profile.city %>
+  </div>
+  <div class="form-group">
+    <label for="tell"><%= Profile.human_attribute_name(:tell) %></label>
+    <%= @profile.tell %>
+  </div>
+  <div class="form-group">
+    <label for="careers"><%= GameCareer.model_name.human %></label>
+    <% @profile.game_careers.each do |c| %>
+      <%= c.name %>
+      <br />
+    <% end %>
+  </div>  
+  <div class="form-group">
+    <label for="games"><%= PossessGame.model_name.human %></label>
+    <% @profile.possess_games.each do |g| %>
+      <%= g.game_console.name %>
+      <br />
+    <% end %>
+  </div>      
+  <%= render 'submit'%>
+</div>
