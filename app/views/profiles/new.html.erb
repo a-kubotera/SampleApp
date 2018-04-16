@@ -1,1 +1,5 @@
-ようこそ<%= @user.name%>
+ようこそ<%= @profile.user.name%>
+
+<div class="container">
+  <%= render 'form', profile: @profile %>
+</div>

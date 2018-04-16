@@ -25,6 +25,7 @@ gem 'jbuilder'
 # gem 'wareki' #元号表示(平成や昭和など)に対応。案外使える
 
 # Bootstrapの導入
+gem 'bootstrap', '~> 4.0.0.beta2.1'
 # gem 'bootstrap-sass' # bootstrap
 # gem "font-awesome-rails" #アイコンタグを挿入するヘルパーメソッドを提供
 
@@ -138,3 +139,5 @@ end
 
 #Herokuデプロイ用
 # gem 'rails_12factor', group: :production
+
+gem 'nested_form_fields'
