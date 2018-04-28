@@ -1,0 +1,12 @@
+<%- if resource.errors.any? %>
+<div class="errors <%= resource.model_name.singular %>">
+  <div class="errors-header">
+    入力エラーが <%= pluralize(resource.errors.count, '件') %> あります
+  </div>
+  <div class="errors-body">
+    <%- resource.errors.full_messages.each do |message| %>
+    <p><%= message %></p>
+    <%- end %>
+  </div>
+</div>
+<%- end %>

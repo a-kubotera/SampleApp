@@ -6,4 +6,6 @@ class Profile < ApplicationRecord
   has_many :games, through: :possess_games, source: :game_console
 
   accepts_nested_attributes_for :game_careers, :possess_games, allow_destroy: true
+
+  validates :email, uniqueness: true, presence: true
 end
