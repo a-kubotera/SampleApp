@@ -132,6 +132,8 @@ ja:
       too_short: は%{count}文字以上で入力してください
       wrong_length: は%{count}文字で入力してください
       other_than: は%{count}以外の値にしてください
+      illegal_format: の形式が不正です
+      duplicated: の「%{data}」が重複してます
     template:
       body: 次の項目を確認してください
       header:

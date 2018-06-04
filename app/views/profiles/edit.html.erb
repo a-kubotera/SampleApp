@@ -1,5 +1,6 @@
 ようこそ<%= @profile.user.name%>
 
 <div class="container">
+  <%= render 'shared/errors', resource: @profile %>
   <%= render 'form', profile: @profile %>
 </div>

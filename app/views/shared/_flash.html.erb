@@ -1,4 +1,5 @@
-<%- if resource.errors.any? %>
+<%- if resource && resource.errors.any? %>
+<% binding.pry%>
 <div class="errors <%= resource.model_name.singular %>">
   <div class="errors-header">
     入力エラーが <%= pluralize(resource.errors.count, '件') %> あります

@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:edit, :confirm, :update]
   before_action :vaidate_existance, only: [:new, :create]  
+  before_action :vaidate_existance2, only: [:edit]  
 
   def new
     @profile = current_user.build_profile
@@ -49,6 +50,9 @@ class ProfilesController < ApplicationController
 
   def vaidate_existance
     redirect_to edit_profile_path if current_user.profile
+  end
+  def vaidate_existance2
+    redirect_to new_profile_path if current_user.profile.blank?
   end
 
   def submit_back?
