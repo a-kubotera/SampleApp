@@ -10,4 +10,8 @@ ja:
         email: メールアドレス
         address: 住所
         tell: 電話番号
+        game_careers: ゲーム経験
+        possess_games: 所有ゲーム機
+      profile/game_careers:
+        name: ゲーム経験
 

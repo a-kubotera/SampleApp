@@ -17,8 +17,9 @@
   </div>
   <div class="form-group">
     <label for="careers"><%= GameCareer.model_name.human %></label>
-    <% @profile.game_careers.each do |c| %>
-      <%= c.name  unless c._destroy %>
+    <br>
+    <% @profile.game_careers.each.with_index(1) do |c,i| %>
+      <%= i %>番目: <%= c.name  unless c._destroy %>
       <br />
     <% end %>
   </div>  
