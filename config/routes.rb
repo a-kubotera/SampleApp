@@ -16,4 +16,13 @@ Rails.application.routes.draw do
   resource :profile, only: [:new, :create, :edit, :update] do
     post :confirm, on: :collection
   end
+
+  # APIの実装テスト
+  # defaultsを付けると http://~~/○○.json みたいに.jsonがつかない 
+
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :profiles
+    end
+  end  
 end
