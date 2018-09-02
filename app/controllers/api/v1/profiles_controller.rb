@@ -2,9 +2,6 @@
 class Api::V1::ProfilesController < ActionController::Base
   def index
     @profiles = Profile.all
-    render json:@profiles
+    render json:@profiles, include: %i[user prefecture game_careers games ], status:'OK'
   end
-  def show
-    @profile = Profile.first
-  end  
 end
